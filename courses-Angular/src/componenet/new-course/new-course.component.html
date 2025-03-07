@@ -1,0 +1,18 @@
+<h1>{{ isEditMode ? 'עריכת קורס' : '(הוספת קורס - (למורים בלבד' }}</h1>
+
+<form [formGroup]="postCourseForm" (ngSubmit)="onSubmit()" class="course-form">
+    <div formGroupName="course">
+        <mat-form-field appearance="fill" class="input-field">
+            <mat-label>שם הקורס</mat-label>
+            <input matInput formControlName="title"/>         
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill" class="input-field">
+            <mat-label>תיאור הקורס</mat-label>
+            <input matInput formControlName="description"/>         
+        </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="postCourseForm.invalid">
+        {{ isEditMode ? 'עדכון קורס' : 'הוספת קורס' }}
+    </button>
+</form>

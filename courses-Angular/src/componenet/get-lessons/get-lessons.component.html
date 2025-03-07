@@ -1,0 +1,30 @@
+<h1>רשימת שעורים</h1>
+<span class="icon add-lesson-icon" (click)="AddLesson()" matTooltip="הוסף שיעור">
+    <mat-icon color="primary" class="large-icon">add_circle_outline</mat-icon>
+</span>
+
+@if(lessons.length > 0) {
+    <mat-list>
+        @for(u of lessons; track u.title) {
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ u.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ u.content }} - תוכן השיעור</p>
+                </mat-card-content>
+                <div class="icon-buttons">
+                    @if(role === "teacher") {
+                        <span class="icon" (click)="delete(u.id)" matTooltip="מחק שיעור">
+                            <mat-icon color="primary">delete</mat-icon>
+                        </span>
+                        <span class="icon" (click)="editCourse(u)" matTooltip="ערוך שיעור">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </span>
+                    }
+                </div> <!-- סגירת div -->
+            </mat-card> <!-- סגירת mat-card -->
+            <mat-divider></mat-divider>
+        }
+    </mat-list>
+}

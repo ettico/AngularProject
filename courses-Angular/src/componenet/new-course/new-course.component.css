@@ -1,0 +1,15 @@
+.course-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* מרכז את התוכן */
+    margin: 0 auto; /* מרכז את הטופס בעמוד */
+    max-width: 500px; /* רוחב מקסימלי לטופס */
+}
+
+.input-field {
+    width: 100%; /* רוחב מלא */
+    margin-bottom: 20px; /* רווח בין השדות */
+}
+h1{
+    text-align: center;
+}

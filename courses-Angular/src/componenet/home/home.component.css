@@ -1,0 +1,10 @@
+
+.button-container {
+    display: flex;
+    justify-content: center; /* מרכז את הכפתורים בכיוון הרוחב */
+    align-items: center; /* מרכז את הכפתורים בכיוון הגובה */
+    gap: 20px; /* רווח של 20 פיקסלים בין הכפתורים */
+background-color: rgba(165, 160, 160, 0.708);
+padding-top: 20px;
+padding-bottom: 20px;
+}

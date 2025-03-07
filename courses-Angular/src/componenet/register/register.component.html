@@ -1,0 +1,48 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="centered-form">
+    <h1>הרשמה</h1>
+    <div formGroupName="user">
+        <mat-form-field appearance="fill">
+            <mat-label>שם</mat-label>
+            <input matInput formControlName="name"/>
+            @if (registerForm.get('user.name')?.hasError('required'))
+            {               
+                <mat-error>Name Is Required</mat-error>               
+            }
+        </mat-form-field>
+      <br>
+        <mat-form-field appearance="fill">
+            <mat-label>מייל</mat-label>
+            <input matInput formControlName="email"/>
+            @if(registerForm.get('user.email')?.hasError('required'))
+            {
+            <mat-error >
+                Email Is Required
+            </mat-error>
+        }
+        </mat-form-field>
+        <br>
+        <mat-form-field class="input">
+            <mat-label>סיסמא</mat-label>
+            <input matInput [type]="show ? 'password' : 'text'" formControlName="password" />
+            <mat-icon matSuffix (click)="showpassword()">   {{ show ? 'visibility_off' : 'visibility' }}</mat-icon  >
+            @if(registerForm.get('user.password')?.invalid && registerForm.get('user.password')?.touched)
+            {
+                <mat-error>
+                 Paswword Is Required
+                </mat-error>
+            }
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>תפקיד</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="admin">מנהל</mat-option>
+              <mat-option value="teacher">מורה</mat-option>
+              <mat-option value="student">תלמיד</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+    </div>
+    <button mat-raised-button type="submit" [disabled]="registerForm.invalid">שמור</button>
+</form>
+

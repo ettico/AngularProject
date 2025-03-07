@@ -1,0 +1,58 @@
+.mat-card {
+    display: flex;
+    flex-direction: row; /* כדי לשמור על הכותרת והתוכן אחד מתחת לשני */
+  }
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon-buttons {
+      display: flex; /* שימוש ב-flexbox כדי לסדר את האייקונים בשורה */
+      align-items:center;
+      justify-content: center;
+      margin-bottom: 10px; /* מרכז את האייקונים horizontally */
+    }
+    
+    .icon {
+      cursor: pointer; /* שינוי הסמן לכפתור */
+      margin-right: 40px;
+       /* רווח בין האייקונים */
+    }
+    
+    .icon:last-child {
+      margin-right: 0; /* לא להוסיף רווח אחרי האייקון האחרון */
+    }
+    
+    .icon mat-icon {
+      font-size: 24px; /* שינוי גודל האייקון לפי הצורך */
+    }
+    .add-lesson-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 100px;
+      height: 50px; /* גובה של אלמנט ההורה */
+      width: 50px; /* רוחב של אלמנט ההורה */
+      /* cursor: pointer; */
+      /* transition: transform 0.2s; */
+  }
+  
+  .large-icon {
+      font-size: 48px; /* גודל האיקון */
+  }
+  .container {
+    display: flex;
+    justify-content: center; /* ממרכז במישור האופקי */
+    align-items: center; /* ממרכז במישור האנכי */
+    height: 100vh; /* גובה של 100% מהגובה של החלון */
+}
+
+.add-lesson-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px; /* גובה של אלמנט ההורה */
+    width: 30px; /* רוחב של אלמנט ההורה */
+    cursor: pointer; /* שינוי הסמן לכפתור */
+}

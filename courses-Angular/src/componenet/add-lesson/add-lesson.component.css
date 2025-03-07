@@ -1,0 +1,11 @@
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* או גובה אחר שתרצה */
+}
+h1{
+    text-align: center;
+}
+

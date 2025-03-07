@@ -1,0 +1,36 @@
+<mat-list class="course-list">
+  @for (item of courses; track item.title) {
+    <mat-card class="course-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{item.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{item.description}} - תאור</p>
+      </mat-card-content>
+      <div class="icon-buttons">
+        @if (role=="teacher") {
+          <span class="icon" (click)="delete(item.id)" matTooltip="מחק קורס">
+            <mat-icon color="primary">delete</mat-icon>
+          </span>
+          <span class="icon" (click)="editCourse(item)" matTooltip="ערוך קורס">
+            <mat-icon color="primary">edit</mat-icon>
+          </span>
+        }
+        @if(role==="student"){
+          <span class="icon" (click)="AddPerson(item)" matTooltip="הוסף אדם לקורס">
+            <mat-icon color="primary">person_add</mat-icon>
+          </span>
+          <span class="icon" (click)="deletePerson(item)" matTooltip="הסר אדם מהקורס">
+            <mat-icon color="primary">person_remove</mat-icon>
+          </span>
+        }
+        <span class="icon" (click)="showLesson(item)" matTooltip="הצג שיעורים">
+          <mat-icon color="primary">view_list</mat-icon>
+        </span>
+      </div>
+    </mat-card>
+    <mat-divider></mat-divider>
+  }
+</mat-list>
