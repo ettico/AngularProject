@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
   export class LoginComponent  {
     registerForm: FormGroup;
     show=true;
+    login=false;
     constructor(private fb: FormBuilder, private authService: AuthService) {
       this.registerForm = this.fb.group({
         user:fb.group({
@@ -29,7 +30,9 @@ import { MatIconModule } from '@angular/material/icon';
     });
     }
   
-  
+    showpassword() {
+      this.show = !this.show;
+    }
     onLogin(): void {
       if (this.registerForm.valid) {
         console.log(this.registerForm.value);
@@ -38,6 +41,7 @@ import { MatIconModule } from '@angular/material/icon';
           next:(data:any)=>{
             console.log("login succseed");
             localStorage.setItem('role',data.role)
+            this.login=true;
           },error:(err:any)=>console.log("no login")
           
         });

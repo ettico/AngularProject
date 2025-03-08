@@ -25,6 +25,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class RegisterComponent {
   registerForm: FormGroup;
   show = true;
+  inSignin=false;
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
       user: this.fb.group({
@@ -44,6 +45,7 @@ export class RegisterComponent {
     localStorage.setItem('role',this.registerForm.value.user.role)
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
+      this.inSignin=true;
       this.authService.Register(this.registerForm.value.user.name,this.registerForm.value.user.email,this.registerForm.value.user.password,this.registerForm.value.user.role).subscribe({
         next: (data) => console.log("התחברת בהצלחה"), 
         error: (err) => console.log("no")
