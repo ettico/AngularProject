@@ -34,7 +34,7 @@ isEditMode = false;
     this.lessonData = navigation?.extras.state?.['lesson'];
     if(this.lessonData)
       this.isEditMode=true
-    console.log("📥 נתונים שהתקבלו מהניווט:", this.courseData);
+    // console.log("נתונים מהניווט:", this.courseData);
     this.postLessonForm = this.fb.group({
       lesson: this.fb.group({
         title: [this.lessonData?this.lessonData.title: '', Validators.required],

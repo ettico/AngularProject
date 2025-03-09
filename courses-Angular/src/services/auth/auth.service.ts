@@ -18,6 +18,7 @@ export class AuthService {
         if(response.token){
           sessionStorage.setItem("token",response.token)
           localStorage.setItem('userId',response.userId);
+          localStorage.setItem('role',response.role);
           console.log(sessionStorage.getItem("token"));
           console.log(localStorage.getItem("userId"));     
         }

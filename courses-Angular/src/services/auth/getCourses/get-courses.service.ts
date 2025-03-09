@@ -16,48 +16,47 @@ export class GetCoursesService {
   getAllCourses(token: string): Observable<any[]> {
    
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+      'Authorization': `Bearer ${token}` 
     });
     return this.http.get<any[]>(this.baseUrl, { headers });
 }
 getAllLessons(token: string,id:number): Observable<any[]> {
    
   const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+    'Authorization': `Bearer ${token}` 
   });
   return this.http.get<any[]>(`${this.baseUrl}/${id}/lessons`, { headers });
 }
 
 postLesson(title: string, content: string, courseId: string | null, token: string): Observable<any> {
   const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+    'Authorization': `Bearer ${token}` 
   });
 
   const lesson = { title, content, courseId };
   console.log("Creating lesson:", lesson);
 
-  // ודא שהכתובת נכונה
   return this.http.post<lesson>(`${this.baseUrl}/${courseId}/lessons`, lesson, { headers });
 }
 
-postCoursr(title:string,description:string,teacherId:string|null,token:string):Observable<any>{
+postCourses(title:string,description:string,teacherId:string|null,token:string):Observable<any>{
   const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+    'Authorization': `Bearer ${token}`
   });
   const course={title,description,teacherId}
   console.log(course)
   return this.http.post<course>(`${this.baseUrl}`,course,{headers})
 }
-putCoursr(title:string,description:string,teacherId:string|null,token:string,id:number):Observable<any>{
+putCourses(title:string,description:string,teacherId:string|null,token:string,id:number):Observable<any>{
   const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+    'Authorization': `Bearer ${token}` 
   });
   const course={title,description,teacherId}
   return this.http.put<course>(`${this.baseUrl}/${id}`,course,{headers})
 }
 putLesson(title: string, content: string, courseId: number, token: string, lessonId: number): Observable<any> {
   const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // הוספת הטוקן לכותרת
+    'Authorization': `Bearer ${token}` 
   });
   
   const lesson = { title, content, courseId };

@@ -5,10 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Route } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone:true,
-  imports: [   MatInputModule,
+  imports: [  
+     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -42,6 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
             console.log("login succseed");
             localStorage.setItem('role',data.role)
             this.login=true;
+            
           },error:(err:any)=>console.log("no login")
           
         });

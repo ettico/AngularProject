@@ -39,7 +39,9 @@
   }
   
   .large-icon {
-      font-size: 48px; /* גודל האיקון */
+      font-size: 100px; /* גודל האיקון */
+  background-color: aliceblue;
+  border-radius: 50%;
   }
   .container {
     display: flex;
@@ -55,4 +57,21 @@
     height: 30px; /* גובה של אלמנט ההורה */
     width: 30px; /* רוחב של אלמנט ההורה */
     cursor: pointer; /* שינוי הסמן לכפתור */
+}
+h2{
+  background-color: aliceblue;
+  margin-left: 400px;
+  margin-right: 450px;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* מאפשר לרכיבים לעבור לשורה הבאה */
+  justify-content: center; /* מרכז את הכרטיסים */
+  gap: 16px; /* רווח בין הכרטיסים */
+}
+
+.grid-item {
+  flex: 0 1 calc(33.33% - 16px); /* 3 כרטיסים בשורה עם רווח */
+  box-sizing: border-box; /* כולל את הרווחים בחישוב */
 }

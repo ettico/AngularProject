@@ -70,12 +70,12 @@ export class GetCoursesComponent {
     );
   }
 
-  AddPerson(c: course) {
+  AddPerson(x: course) {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
     const userId: string | null = localStorage.getItem('userId');
-    this.http.post<user>(`http://localhost:3000/api/courses/${c.id}/enroll`, { userId }, { headers })
+    this.http.post<user>(`http://localhost:3000/api/courses/${x.id}/enroll`, { userId }, { headers })
       .subscribe(
         (response) => {
           console.log('the user joined successfully', response);

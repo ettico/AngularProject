@@ -1,15 +1,13 @@
-
-<h1>{{ isEditMode ? 'עריכת שיעור' : 'הוספת שיעור - למורים בלבד' }}</h1>
-
 <form [formGroup]="postLessonForm" (ngSubmit)="onSubmit()" class="centered-form">
+    <h1>{{ isEditMode ? 'עריכת שיעור' : 'הוספת שיעור - למורים בלבד' }}</h1>
     <div formGroupName="lesson">
         <mat-form-field appearance="fill">
-            <mat-label>title </mat-label>
+            <mat-label>שם השיעור: </mat-label>
             <input matInput formControlName="title"/>         
         </mat-form-field>
       <br>
         <mat-form-field appearance="fill" >
-            <mat-label>content </mat-label>
+            <mat-label>תוכן השיעור: </mat-label>
             <input matInput formControlName="content"/>         
         </mat-form-field>
     </div>

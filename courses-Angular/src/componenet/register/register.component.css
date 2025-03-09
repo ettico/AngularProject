@@ -3,6 +3,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* או גובה אחר שתרצה */
+    /* height: 100vh; או גובה אחר שתרצה */
+}
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* פינות מעוגלות */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* צל עדין */
+    padding: 20px; /* רווח פנימי */
+    max-width: 400px; /* רוחב מקסימלי */
+    margin-top: 70px;
+    margin-left: 350px;
+    transition: box-shadow 0.3s ease; /* מעבר חלק עבור הצל */
+    background-color: rgba(255, 255, 255, 0.877); /* צל חזק יותר במעבר עכבר */
+}
+
+.centered-form:hover {
+    background: white; /* צבע רקע של הכרטיס */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 

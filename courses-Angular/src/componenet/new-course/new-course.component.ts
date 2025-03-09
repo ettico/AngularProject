@@ -26,6 +26,7 @@ export class NewCourseComponent {
   postCourseForm: FormGroup;
   token: string = sessionStorage.getItem("token") ?? "";
 isEditMode = false;
+//isLog=false;
   constructor(private fb: FormBuilder, private courseService: GetCoursesService, private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     const courseData = navigation?.extras.state?.['courseData'];
@@ -53,7 +54,7 @@ isEditMode = false;
    {
     if (this.postCourseForm.valid) {
       console.log(this.postCourseForm.value);
-      this.courseService.putCoursr(this.postCourseForm.value.course.title,this.postCourseForm.value.course.description ,userId,this.token,this.postCourseForm.value.course.id ).subscribe({
+      this.courseService.putCourses(this.postCourseForm.value.course.title,this.postCourseForm.value.course.description ,userId,this.token,this.postCourseForm.value.course.id ).subscribe({
         next: (data) => {
           console.log("הקורס עודכן בהצלחה")
         console.log(data);
@@ -66,11 +67,13 @@ isEditMode = false;
     else{
       if (this.postCourseForm.valid) {
         console.log(this.postCourseForm.value);
-        this.courseService.postCoursr(this.postCourseForm.value.course.title,this.postCourseForm.value.course.description ,userId,this.token ).subscribe({
+       
+        this.courseService.postCourses(this.postCourseForm.value.course.title,this.postCourseForm.value.course.description ,userId,this.token ).subscribe({
           next: (data) => console.log("הקורס נוסף בהצלחה"), error: (err) => console.log("no")
         });
-      };
+      }
+      
     }
-    
+    //שיניתי דברים ולא עדכנתי בגיט
   }
 }

@@ -1,5 +1,8 @@
+<body>
+    
 
 <div class="button-container">
+    <div>{{role}}</div>
     <button mat-icon-button [routerLink]="['/']" aria-label="חזרה לדף הבית">
         <mat-icon color="primary">home</mat-icon> <!-- אייקון הבית -->
     </button>
@@ -12,10 +15,12 @@
 <button mat-raised-button class="bt" color="success" [routerLink]="['/GetCourses']">
     הקורסים שלנו
 </button>
+@if(role==="teacher"){
 <button mat-raised-button class="bt" color="success" [routerLink]="['/NewCourses']">
     הוספת קורס
 </button>
-
+}
 </div>
 
 <router-outlet></router-outlet>
+</body>

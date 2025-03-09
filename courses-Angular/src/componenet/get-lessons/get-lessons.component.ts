@@ -8,7 +8,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatIconModule } from '@angular/material/icon';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { lesson } from '../../models/lesson';
 import { GetCoursesService } from '../../services/auth/getCourses/get-courses.service';
 import { Router, RouterLink } from '@angular/router';
@@ -31,27 +30,27 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     })
 
 export class GetLessonsComponent {
-  lessons:lesson[] = []; // מערך המשתמשים
-    token:string|any=sessionStorage.getItem("token")
-    role:string|any=localStorage.getItem('role')
-    courseData:any;
+  lessons:lesson[] = [];
+  courseData:any;
+  role:string|any=localStorage.getItem('role')
+  token:string|any=sessionStorage.getItem("token")
   constructor(private courseService:GetCoursesService,private http:HttpClient,private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.courseData = navigation?.extras.state?.['courseData'];
   }
-  delete( lessonId: number | undefined) {
-    const courseId: number=this.courseData.id
+  delete( lessonid: number | undefined) {
+    const courseid: number=this.courseData.id
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
   
     // ודא שהכתובת נכונה
-    this.http.delete(`http://localhost:3000/api/courses/${courseId}/lessons/${lessonId}`, { headers })
+    this.http.delete(`http://localhost:3000/api/courses/${courseid}/lessons/${lessonid}`, { headers })
       .subscribe(
         (response) => {
           console.log('Lesson deleted successfully', response);
           // עדכון המערך לאחר מחיקת השיעור
-          this.lessons = this.lessons.filter(lesson => lesson.id !== lessonId);
+          this.lessons = this.lessons.filter(lesson => lesson.id !== lessonid);
         },
         (error) => {
           console.error('Error deleting lesson', error); // טיפול בשגיאות
